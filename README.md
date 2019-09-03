@@ -13,3 +13,12 @@ Required python packages in requirements.txt. Install with pip3 :
 ```
 pip3 install -r requirements.txt
 ```
+
+##### Optional
+
+
+Install and configure nginx:
+
+```
+./install_nginx.sh
+```
