@@ -11,5 +11,5 @@ Requires mplayer to work. nginx recommended for usage from local network.
 Required python packages in requirements.txt. Install with pip3 :
 
 ```
-install -r requirements.txt
+pip3 install -r requirements.txt
 ```
