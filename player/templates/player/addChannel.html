@@ -1,0 +1,21 @@
+{% load static %}
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Anton">
+<link rel="stylesheet" type="text/css" href="{% static 'player/style.css' %}">
+<body>
+
+<center><h1>Add Channel</h1></center>
+<form action="{% url 'player:add_channel' %}" method="POST">
+{% csrf_token %}
+
+<table>
+{{ channel_form.as_table }}
+</table>
+<input type="submit" value="Add channel" class="btn btn-primary col-sm-12 col-lg-6">
+</form>
+</body>
+</html>

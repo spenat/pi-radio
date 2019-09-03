@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Anton">
+<link rel="stylesheet" type="text/css" href="{% static 'player/style.css' %}">
+
+<body>
+
+    <center><h1>Radio</h1></center>
+   <div class="row">
+{% for a in channel_list %}
+    <form action="{% url 'player:play_channel' %}" method="POST" class="col-sm-12">
+    {% csrf_token %}
+    <input type=hidden name="url" value="{{ a.url }}"> 
+    <input type=hidden name="name" value="{{ a.name }}"> 
+    <input type=submit value="Play {{ a.name }}" class="btn btn-primary col-sm-12 col-lg-6">
+    </form>
+{% endfor %}
+</div>
+<div class="row">
+   <div class="col-sm-6 col-lg-12"> <a href="{% url 'player:add_channel' %}">Add channel</a></div>
+   <div class="col-sm-6 col-lg-12"> <a href="{% url 'player:stop_music' %}">Stop music</a></div>
+</div>
+</body>
+</html>
